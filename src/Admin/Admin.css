@@ -1,0 +1,29 @@
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.admin-nav button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-nav button:hover {
+    background-color: #0056b3;
+}
