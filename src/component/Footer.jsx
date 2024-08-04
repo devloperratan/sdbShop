@@ -4,7 +4,7 @@ function Footer(){
     return(
         <footer className="footer">
             <div className="container">
-                <p>&copy; 2024 My Shop. All Rights Reserved.</p>
+                <p>&copy; 2024 Shradhha Divine Beauty Shop. All Rights Reserved.</p>
                 <ul className="social-links">
                     <li><a href="#" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                     <li><a href="#" target="_blank" rel="noopener noreferrer">Twitter</a></li>

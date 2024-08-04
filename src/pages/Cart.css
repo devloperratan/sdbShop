@@ -1,0 +1,14 @@
+.cart {
+    padding: 20px;
+}
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart table, .cart th, .cart td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}

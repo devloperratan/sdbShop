@@ -22,9 +22,9 @@ function Admin(){
         <div className="admin-panel">
         <nav className="admin-nav">
             <button onClick={() => setActive_tab('insert')}>Insert Product</button>
-            <button onClick={() => setActive_tab('update')}>Update Product</button>
+            {/* <button onClick={() => setActive_tab('update')}>Update Product</button>
             <button onClick={() => setActive_tab('delete')}>Delete Product</button>
-            <button onClick={() => setActive_tab('edit')}>Edit Product</button>
+            <button onClick={() => setActive_tab('edit')}>Edit Product</button> */}
         </nav>
         <div className="admin-content">
             {render_prod()}

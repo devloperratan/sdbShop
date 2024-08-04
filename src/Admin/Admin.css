@@ -27,3 +27,7 @@
 .admin-nav button:hover {
     background-color: #0056b3;
 }
+
+.admin-content{
+    width: 80%;
+}

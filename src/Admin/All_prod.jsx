@@ -14,7 +14,15 @@ export function All_prod(){
             console.log(err)
         })
     },[]);
-
+const handleDelete=(productId)=>{
+    axios.delete(`http://localhost:3000/products/${productId}`)
+    .then((res)=>{
+      setProd(res.data)
+    })
+    .catch(error => {
+        console.error('There was an error deleting the Product!', error);
+    });
+}
     return(
         <div className="all-products">
         <h2>All Products</h2>
@@ -26,7 +34,7 @@ export function All_prod(){
                         <th>Price</th>
                         <th>Description</th>
                         <th>Image</th>
-                        <th>Actions</th>
+                        <th colSpan="2">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,13 +44,10 @@ export function All_prod(){
                             <td>${product.ProductRate}</td>
                             <td>{product.ProductDesc}</td>
                             <td>
-                                    {product.ProductImg && Object.keys(product.ProductImg).length > 0 ? (
-                                        <img src={product.ProductImg.url} alt={product.ProductName} />
-                                    ) : (
-                                        <span>No Image</span>
-                                    )}
+                                 <img src={product.ProductImg} alt="" />
                                 </td>
                             <td><Link to={`/edit/${product.id}`}>Edit</Link></td>
+                            <td><Link onClick={()=>handleDelete(product.id)}>Delete</Link></td>
                         </tr>
                     ))}
                 </tbody>
