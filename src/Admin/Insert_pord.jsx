@@ -5,7 +5,8 @@ export function Insert_prod (){
 
 const [product,setProduct]=useState({id:"",ProductName:"",ProductRate:"",ProductDesc:"",ProductImg:""});
 
-const submitHandle=()=>{
+const submitHandle=(e)=>{
+    e.preventDefault();
     axios.post('http://localhost:3000/products', product)
     .then(res => {
         console.log(res.data);
@@ -19,7 +20,14 @@ const submitHandle=()=>{
 const handleFileChange = (e) => {
     console.log(e.target.files)
     const file = e.target.files[0];
-    setProduct({ ...product, ProductImg: file });
+    const reader = new FileReader()
+    reader.onloadend = () => {
+        setProduct({ ...product, ProductImg: reader.result });
+    };
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
 };
 
     return(
@@ -51,10 +59,9 @@ const handleFileChange = (e) => {
             </div>
             <div>
                 <label>Product Image:</label>
-                <input
-                    type="file"
-                    onChange={handleFileChange}
-                />
+                <input type="file"
+                   onChange={handleFileChange}
+                   /> 
             </div>
             <button type="submit">Save</button>
         </form>

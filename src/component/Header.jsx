@@ -8,10 +8,10 @@ function Header() {
     return (
         <header className="navigation">
             <div className="container">
-                <div className="title">SDB Shop</div>
+                <div className="title"><Link to="/">SDB Shop</Link></div>
                 <nav className="nav-links">
                     <ul>
-                        <li><NavLink to="/" className="active">Shop</NavLink></li>
+                        <li><NavLink to="/shop" className="active">Shop</NavLink></li>
                         <li><NavLink to="/cart" className="active">
                                 Cart
                             </NavLink>

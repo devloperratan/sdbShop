@@ -14,7 +14,8 @@ export function All_prod(){
             console.log(err)
         })
     },[]);
-const handleDelete=(productId)=>{
+const handleDelete=(productId,e)=>{
+    e.preventDefault();
     axios.delete(`http://localhost:3000/products/${productId}`)
     .then((res)=>{
       setProd(res.data)
