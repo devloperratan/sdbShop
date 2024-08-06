@@ -3,11 +3,17 @@ import { CartContext } from "../component/CartContext";
 import './Cart.css';
 
 function Cart() {
+
     const { cartItems } = useContext(CartContext);
     const {addToCart}= useContext(CartContext);
     const {removeFromCart}=useContext(CartContext)
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.ProductRate * item.quantity, 0);
+    };
+
+    const handleCheckout = () => {
+        alert('Proceeding to checkout...');
+        // Implement your checkout logic here
     };
     return (
         <div className="cart">
@@ -41,11 +47,17 @@ function Cart() {
                         ))}
                     </tbody>
                 </table>
-                   <h3>Total: ${calculateTotal()}</h3>
+                 
                 </>
             ) : (
                 <p>No items in the cart.</p>
             )}
+
+            <div className="checkOut">
+            <h3>Total: ${calculateTotal()}</h3>
+                    <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
+            
+            </div>
         </div>
     );
 }

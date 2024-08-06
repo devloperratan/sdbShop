@@ -19,6 +19,14 @@
     letter-spacing: 1px;
 }
 
+.title a{
+    color: #fff;
+}
+.title a :hover{
+    color: #fff;
+    text-decoration: none;
+    text-underline-offset: none;
+}
 .nav-links ul {
     list-style: none;
     display: flex;
