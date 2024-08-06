@@ -1,10 +1,11 @@
-// Cart.jsx
 import React, { useContext } from "react";
 import { CartContext } from "../component/CartContext";
 import './Cart.css';
 
 function Cart() {
     const { cartItems } = useContext(CartContext);
+    const {addToCart}= useContext(CartContext);
+    const {removeFromCart}=useContext(CartContext)
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.ProductRate * item.quantity, 0);
     };
@@ -16,7 +17,8 @@ function Cart() {
                 <table>
                     <thead>
                         <tr>
-                            <th>Product Name</th>
+                            <th>Image</th>
+                            <th>Name</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Total</th>
@@ -26,6 +28,7 @@ function Cart() {
                     <tbody>
                         {cartItems.map(item => (
                             <tr key={item.id}>
+                                <td><img src={item.ProductImg} alt="" /></td>
                                 <td>{item.ProductName}</td>
                                 <td>{item.quantity}</td>
                                 <td>${item.ProductRate}</td>
