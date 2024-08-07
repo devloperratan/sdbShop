@@ -1,20 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { CartContext } from "../component/CartContext";
 import './Cart.css';
-
+import { Navigate, useNavigate} from "react-router-dom";
+import { CheckOutPopup } from "../component/CheckOutPopup";
 function Cart() {
 
     const { cartItems } = useContext(CartContext);
     const {addToCart}= useContext(CartContext);
-    const {removeFromCart}=useContext(CartContext)
+    const {removeFromCart}=useContext(CartContext);
+    const {clearCart}=useContext(CartContext);
+const navigate = useNavigate();
+const [showPopup, setShowPopup] = useState(false);
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.ProductRate * item.quantity, 0);
     };
 
     const handleCheckout = () => {
         alert('Proceeding to checkout...');
-        // Implement your checkout logic here
+        setShowPopup(true);
     };
+    const handleClosePopup = () => {
+        setShowPopup(false);
+        clearCart();
+    };
+
     return (
         <div className="cart">
             <h2>Shopping Cart</h2>
@@ -56,8 +65,8 @@ function Cart() {
             <div className="checkOut">
             <h3>Total: ${calculateTotal()}</h3>
                     <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
-            
             </div>
+            {showPopup && <CheckOutPopup onClose={handleClosePopup} />}
         </div>
     );
 }
